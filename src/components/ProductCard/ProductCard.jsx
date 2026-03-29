@@ -7,8 +7,9 @@ const badgeConfig = {
     mostwanted: { bg: 'bg-orange-300', Icon: FaStar, text: 'MOSTWANTED' }
 }
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, handleAddToCart, cart }) => {
     const badge = badgeConfig[product.status]
+    const existingProduct = cart.find((item) => item.id === product.id)
 
     return (
         <div className='group max-w-sm rounded-2xl border border-base-300 shadow-xl'>
@@ -30,7 +31,11 @@ const ProductCard = ({ product }) => {
                 ) : (
                     <h3 className='text-2xl font-bold'>${product.price} <span className='text-base font-medium text-gray-500'>/month</span></h3>)
                 }
-                <button className='w-full bg-orange-500 py-3 rounded-2xl text-base-100 font-medium cursor-pointer'>Subscribe Now</button>
+                <button onClick={() => handleAddToCart(product)} className='w-full bg-orange-500 py-3 rounded-2xl text-base-100 font-medium cursor-pointer'>
+                    {
+                        existingProduct ? 'Subscribed' : 'Subscribe Now'
+                    }
+                </button>
             </div>
         </div>
     );

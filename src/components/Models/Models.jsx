@@ -1,7 +1,7 @@
 import React, { use } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 
-const Models = ({ modelPromise }) => {
+const Models = ({ modelPromise, handleAddToCart, cart }) => {
     const models = use(modelPromise)
 
     return (
@@ -11,7 +11,7 @@ const Models = ({ modelPromise }) => {
 
             <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 container mx-auto'>
                 {
-                    models.map((product) => <ProductCard key={product.id} product={product} />)
+                    models.map((product) => <ProductCard key={product.id} product={product} handleAddToCart={handleAddToCart} cart={cart} />)
                 }
             </div>
         </div>
