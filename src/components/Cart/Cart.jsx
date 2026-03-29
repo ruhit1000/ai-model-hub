@@ -2,10 +2,11 @@ import React from 'react';
 import CartProductCard from './CartProductCard';
 import { toast } from 'react-toastify';
 
-const Cart = ({ cart, handleRemove, total, setCart }) => {
+const Cart = ({ cart, handleRemove, total, setCart, setTotal }) => {
 
     const handleCheckout = () => {
         setCart([])
+        setTotal(0)
         toast.success('Payment Success')
     }
 

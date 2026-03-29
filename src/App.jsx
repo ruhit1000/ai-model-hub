@@ -46,7 +46,7 @@ const App = () => {
         cart={cart}
       />
       {
-        selectedTab === 'models' ? <Models modelPromise={modelPromise} handleAddToCart={handleAddToCart} cart={cart} /> : <Cart cart={cart} handleRemove={handleRemove} total={total} setCart={setCart} />
+        selectedTab === 'models' ? <Models modelPromise={modelPromise} handleAddToCart={handleAddToCart} cart={cart} /> : <Cart cart={cart} handleRemove={handleRemove} total={total} setCart={setCart} setTotal={setTotal} />
       }
       <Footer />
       <ToastContainer />
